@@ -97,7 +97,7 @@ build/
 dist/
 *.egg
 *.egg-info/
-*.whl
+artifacts/duckdb/
 
 # WHY: Tooling caches should not be tracked.
 .coverage
