@@ -63,6 +63,9 @@ Thumbs.db
 
 # === Documentation build output ===
 
+# WHY: File is too large and generated from source files.
+artifacts\duckdb
+
 # WHY: Static site build output is generated.
 site/
 
