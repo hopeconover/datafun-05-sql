@@ -1,6 +1,6 @@
-"""case_duckdb_retail.py - Project script (example).
+"""conover_duckdb_retail.py - Project script (example).
 
-Author: Denise Case
+Author: Hope Conover
 Date: 2026-02
 
 Purpose:
