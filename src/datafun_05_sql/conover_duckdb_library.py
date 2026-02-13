@@ -1,4 +1,4 @@
-"""conover_duckdb_retail.py - Project script (example).
+"""conover_duckdb_library.py - Project script (example).
 
 Author: Hope Conover
 Date: 2026-02
@@ -147,6 +147,7 @@ def main() -> None:
         # STEP 3: RUN BASIC QUERIES
         # ----------------------------------------------------
         run_sql_query(con, SQL_DIR / "conover_library_query_kpi_branch_activity.sql")
+        run_sql_query(con, SQL_DIR / "conover_library_query_branch_inventory.sql")
         run_sql_query(con, SQL_DIR / "conover_library_query_checkout_count.sql")
         run_sql_query(con, SQL_DIR / "conover_library_query_checkout_aggregate.sql")
         run_sql_query(con, SQL_DIR / "conover_library_query_checkout_by_type.sql")
