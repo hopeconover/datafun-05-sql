@@ -10,9 +10,9 @@ Purpose:
 
 Paths (relative to repo root):
    SQL:  sql/duckdb/*.sql
-   CSV:  data/retail/store.csv
-   CSV:  data/retail/sale.csv
-   DB:   artifacts/duckdb/retail.duckdb
+   CSV:  data/library/branch.csv
+   CSV:  data/library/checkout.csv
+   DB:   artifacts/duckdb/library.duckdb
 
 OBS:
   Don't edit this file - it should remain a working example.
@@ -36,13 +36,13 @@ LOG: logging.Logger = get_logger("P05", level="DEBUG")
 
 ROOT_DIR: Final[Path] = Path.cwd()
 
-DATA_DIR: Final[Path] = ROOT_DIR / "data" / "retail"
+DATA_DIR: Final[Path] = ROOT_DIR / "data" / "library"
 SQL_DIR: Final[Path] = ROOT_DIR / "sql" / "duckdb"
 ARTIFACTS_DIR: Final[Path] = ROOT_DIR / "artifacts" / "duckdb"
-DB_PATH: Final[Path] = ARTIFACTS_DIR / "retail.duckdb"
+DB_PATH: Final[Path] = ARTIFACTS_DIR / "library.duckdb"
 
-STORE_CSV: Final[Path] = DATA_DIR / "store.csv"
-SALE_CSV: Final[Path] = DATA_DIR / "sale.csv"
+STORE_CSV: Final[Path] = DATA_DIR / "branch.csv"
+SALE_CSV: Final[Path] = DATA_DIR / "checkout.csv"
 
 # === DECLARE HELPER FUNCTION:  READ SQL FROM PATH ===
 
@@ -134,27 +134,31 @@ def main() -> None:
 
     try:
         # ----------------------------------------------------
-        # STEP 1: CLEAN (optional, common practice during development)
+        # STEP 1: BOOTSTRAP (create tables, load CSV data)
         # ----------------------------------------------------
-        run_sql_script(con, SQL_DIR / "case_retail_clean.sql")
+        run_sql_script(con, SQL_DIR / "conover_library_bootstrap.sql")
 
         # ----------------------------------------------------
-        # STEP 2: BOOTSTRAP (create tables, load CSV data)
+        # STEP 2: CLEAN (optional, common practice during development)
         # ----------------------------------------------------
-        run_sql_script(con, SQL_DIR / "case_retail_bootstrap.sql")
+        run_sql_script(con, SQL_DIR / "conover_library_clean.sql")
 
         # ----------------------------------------------------
         # STEP 3: RUN BASIC QUERIES
         # ----------------------------------------------------
-        run_sql_query(con, SQL_DIR / "case_retail_query_store_count.sql")
-        run_sql_query(con, SQL_DIR / "case_retail_query_sales_count.sql")
-        run_sql_query(con, SQL_DIR / "case_retail_query_sales_aggregate.sql")
-        run_sql_query(con, SQL_DIR / "case_retail_query_sales_by_category.sql")
+        run_sql_query(con, SQL_DIR / "conover_library_query_kpi_branch_activity.sql")
+        run_sql_query(con, SQL_DIR / "conover_library_query_checkout_count.sql")
+        run_sql_query(con, SQL_DIR / "conover_library_query_checkout_aggregate.sql")
+        run_sql_query(con, SQL_DIR / "conover_library_query_checkout_by_type.sql")
 
         # ----------------------------------------------------
         # STEP 4: RUN KPI QUERY (ACTION-DRIVEN)
         # ----------------------------------------------------
-        run_sql_query(con, SQL_DIR / "case_retail_query_kpi_revenue.sql")
+        run_sql_query(con, SQL_DIR / "conover_library_query_kpi_fine_revenue.sql")
+        run_sql_query(con, SQL_DIR / "conover_library_query_kpi_material_demand.sql")
+        run_sql_query(con, SQL_DIR / "conover_library_query_kpi_avg_duration.sql")
+        run_sql_query(con, SQL_DIR / "conover_library_query_kpi_system_performance.sql")
+        run_sql_query(con, SQL_DIR / "conover_library_query_kpi_branch_activity.sql")
 
     finally:
         # Regardless of success or failure, always close the connection
