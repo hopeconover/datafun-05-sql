@@ -49,8 +49,8 @@ To complete the project, you will implement a second topic domain.
 
 Note: Files must include your name or alias AND the domain like we do in the examples.
 
-- Replace `case` in filenames with your name or alias.
-- Replace `retail` in filenames with your domain (library, shelter, civic_event).
+- Replace `conover` in filenames with your name or alias.
+- Replace `library` in filenames with your domain (library, shelter, civic_event).
 
 ---
 
@@ -75,17 +75,17 @@ Follow the detailed instructions at:
 git clone https://github.com/YOURACCOUNT/datafun-05-sql
 ```
 
-4. Open project in VS Code: Change directory into the repo and open the project in VS Code by running `code .` ("code dot"):
+1. Open project in VS Code: Change directory into the repo and open the project in VS Code by running `code .` ("code dot"):
 
 ```shell
 cd datafun-05-sql
 code .
 ```
 
-5. Install recommended extensions.
+1. Install recommended extensions.
    - When VS Code opens, accept the Extension Recommendations (click **`Install All`** or similar when asked).
 
-6. Set up a project Python environment (managed by `uv`) and align VS Code with it.
+2. Set up a project Python environment (managed by `uv`) and align VS Code with it.
    - Use VS Code menu option `Terminal` / `New Terminal` to open a **VS Code terminal** in the root project folder.
    - Run the following commands, one at a time, hitting ENTER after each:
 
@@ -175,7 +175,7 @@ Additional details and troubleshooting are available in the [Pro-Analytics-02 Do
 
 Open [mkdocs.yaml](./mkdocs.yaml).
 This file configures the associated project documentation website (powered by MkDocs)
-Use CTRL+f to find each occurrence of the source GitHub account (e.g. `denisecase`).
+Use CTRL+f to find each occurrence of the source GitHub account (e.g. `hopeconover`).
 Change each occurrence to point to your GitHub account instead (spacing and capitalization MUST match the URL of your GitHub account **exactly**.)
 
 ### Project Task 2. Personalize Your SQL and Python Files
@@ -185,9 +185,9 @@ Choose one of the custom domains in the data/ folder (e.g. library or shelter).
 You will implement the same process as we did for retail using your domain.
 For example, if you choose library, follow the example files in sql/duckdb/ (keep these as working examples):
 
-- case_retail_bootstrap.sql
-- case_retail_clean.sql
-- case_retail_query_kpi_revenue.sql
+- conover_retail_bootstrap.sql
+- conover_retail_clean.sql
+- conover_retail_query_kpi_revenue.sql
 - ...
 
 If you do library, you would add a new file for each of those (~7) files like so:
@@ -197,7 +197,7 @@ If you do library, you would add a new file for each of those (~7) files like so
 - yourname_library_query_kpi_checkouts.sql (or whatever KPI you want to explore)
 - ....
 
-1. Copy `case_duckdb_retail.py` to reflect your name or alias and your domain.
+1. Copy `conover_duckdb_library.py` to reflect your name or alias and your domain.
 2. Edit this README.md file to add a new run command to execute your file instead.
 3. Preview this README.md to make sure it still appears correctly.
    - Find README.md in the VS Code Explorer window (top icon on the left)
