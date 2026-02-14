@@ -80,8 +80,8 @@ CREATE TABLE IF NOT EXISTS checkout (
   -- All remaining fields are also required (NOT NULL).
   material_type TEXT NOT NULL,
   duration_days INTEGER NOT NULL,
-  fine_amount DOUBLE NOT NULL,
-  checkout_date TEXT NOT NULL
+  fine_amount DECIMAL(10, 2) NOT NULL,
+  checkout_date DATE NOT NULL
 );
 --
 --
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS checkout (
 -- Load the parent (independent) table first.
 COPY branch
 FROM 'data/library/branch.csv'
-(HEADER, DELIMITER ',', QUOTE '"', ESCAPE '"');
+(HEADER 1, DELIMITER ',', QUOTE '"', ESCAPE '"');
 
 -- Load the child (dependent) table second.
 COPY checkout

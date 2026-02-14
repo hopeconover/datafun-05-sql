@@ -1,6 +1,6 @@
 -- sql/duckdb/conover_library_query_material_demand.sql
 
-============================================================
+--============================================================
 -- PURPOSE
 -- ============================================================
 -- Break overall checkouts down by material type.
@@ -23,9 +23,7 @@
 
 SELECT
     material_type,
-    COUNT(*) AS total_checkouts,
-    ROUND(COUNT(*) * 100.0 /
-          SUM(COUNT(*)) OVER (), 2) AS percent_of_total
-FROM checkouts
+    COUNT(*) as count
+FROM checkout
 GROUP BY material_type
-ORDER BY total_checkouts DESC;
+ORDER BY count DESC;

@@ -16,7 +16,6 @@
 
 SELECT
     material_type,
-    ROUND(AVG(duration_days), 2) AS avg_duration_days
-FROM checkouts
-GROUP BY material_type
-ORDER BY avg_duration_days DESC;
+    ROUND(AVG(duration_days), 1) as avg_duration_days
+FROM checkout
+GROUP BY material_type;

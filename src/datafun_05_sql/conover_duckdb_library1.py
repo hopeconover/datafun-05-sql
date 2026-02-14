@@ -134,20 +134,21 @@ def main() -> None:
 
     try:
         # ----------------------------------------------------
-        # STEP 1: BOOTSTRAP (create tables, load CSV data)
-        # ----------------------------------------------------
-        run_sql_script(con, SQL_DIR / "conover_library_bootstrap.sql")
-
-        # ----------------------------------------------------
-        # STEP 2: CLEAN (optional, common practice during development)
+        # STEP 1: CLEAN (optional, common practice during development)
         # ----------------------------------------------------
         run_sql_script(con, SQL_DIR / "conover_library_clean.sql")
+
+        # ----------------------------------------------------
+        # STEP 2: BOOTSTRAP (create tables, load CSV data)
+        # ----------------------------------------------------
+        run_sql_script(con, SQL_DIR / "conover_library_bootstrap.sql")
 
         # ----------------------------------------------------
         # STEP 3: RUN BASIC QUERIES
         # ----------------------------------------------------
         run_sql_query(con, SQL_DIR / "conover_library_query_avg_duration.sql")
         run_sql_query(con, SQL_DIR / "conover_library_query_branch_activity.sql")
+        run_sql_query(con, SQL_DIR / "conover_library_query_city_stats.sql")
         run_sql_query(con, SQL_DIR / "conover_library_query_material_demand.sql")
 
         # ----------------------------------------------------

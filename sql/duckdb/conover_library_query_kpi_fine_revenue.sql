@@ -81,18 +81,10 @@
 -- - ORDER results so we can quickly see top branches
 --
 SELECT
-  b.branch_id,
-  b.branch_name,
-  b.city,
-  COUNT(c.checkout_id) AS checkout_count,
-  ROUND(SUM(c.fine_amount), 2) AS total_fine_revenue,
-  ROUND(AVG(c.fine_amount), 2) AS avg_fine_amount
-FROM branch AS b
-JOIN checkout AS c
-  ON c.branch_id = b.branch_id
-GROUP BY
-  b.branch_id,
-  b.branch_name,
-  b.city,
-  b.system_name
-ORDER BY total_fine_revenue DESC;
+b.branch_name,
+    SUM(c.fine_amount) as total_fines,
+    ROUND(SUM(c.fine_amount) / COUNT(c.checkout_id), 2) as fine_per_checkout
+FROM branch b
+JOIN checkout c ON b.branch_id = c.branch_id
+GROUP BY b.branch_name
+ORDER BY total_fines DESC;
