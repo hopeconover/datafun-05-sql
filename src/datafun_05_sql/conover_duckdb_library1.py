@@ -147,8 +147,8 @@ def main() -> None:
         # STEP 3: RUN BASIC QUERIES
         # ----------------------------------------------------
         run_sql_query(con, SQL_DIR / "conover_library_query_avg_duration.sql")
-        run_sql_query(con, SQL_DIR / "conover_library_query_material_demand.sql")
         run_sql_query(con, SQL_DIR / "conover_library_query_branch_activity.sql")
+        run_sql_query(con, SQL_DIR / "conover_library_query_material_demand.sql")
 
         # ----------------------------------------------------
         # STEP 4: RUN KPI QUERY (ACTION-DRIVEN)

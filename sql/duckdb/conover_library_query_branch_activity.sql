@@ -1,23 +1,23 @@
--- sql/duckdb/conover_library_kpi_branch_activity.sql
+-- sql/duckdb/conover_library_query_branch_activity.sql
 
  ============================================================
 -- PURPOSE
 -- ============================================================
--- Break overall sales performance down by product category.
+-- Break overall checkout performance down by branch.
 --
 -- This query answers:
--- "How many sales and how much revenue do we have by category?"
+-- "How many checkouts and how much revenue do we have by branch?"
 --
 -- WHY:
 -- - Overall totals hide important differences.
 -- - Grouping lets us compare parts of the system.
 -- - This often reveals where action is needed:
---   * Which categories drive revenue?
---   * Which categories underperform?
+--   * Which branches drive revenue?
+--   * Which branches underperform?
 --
 -- IMPORTANT:
 -- This query uses GROUP BY but does NOT join tables yet.
--- We are still working only with the dependent/child table (sale).
+-- We are still working only with the dependent/child table (checkouts).
 
 
 
